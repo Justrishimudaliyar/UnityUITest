@@ -461,8 +461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 402b3845cbec007479cef0929de81c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rows: 9
-  _columns: 16
+  _rows: 5
+  _columns: 12
   Column: {fileID: 7505926046827500554, guid: bba8540f64ce88a478b773137dd93d80, type: 3}
   GridElement: {fileID: 8076299117891844937, guid: c446200a6eda7044fa36c2f1758abff3, type: 3}
 --- !u!114 &926380695
@@ -483,7 +483,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 1
-  m_Spacing: 10
+  m_Spacing: 5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1

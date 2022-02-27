@@ -12,6 +12,7 @@ public class GridElement : MonoBehaviour
     public Color tileColor;
     public TextMeshProUGUI tileText;
 
+ 
     public void SetPosition(int row, int col)
     {
         rowNumber = row;

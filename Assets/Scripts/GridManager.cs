@@ -19,20 +19,20 @@ public class GridManager : MonoBehaviour
     {
         for (int row = 0; row < _rows; row++)
         {
-            var newRow = Instantiate(Column, transform.position, Quaternion.identity);
-            newRow.transform.SetParent(gameObject.transform);
+            var newColumn = Instantiate(Column, transform.position, Quaternion.identity);
+            newColumn.transform.SetParent(gameObject.transform);
 
             for (int col = 0; col < _columns; col++)
             {
-                var newTile = Instantiate(GridElement, transform.position, Quaternion.identity);
-                newTile.transform.SetParent(newRow.transform);
+                var newGridElement = Instantiate(GridElement, transform.position, Quaternion.identity);
+                newGridElement.transform.SetParent(newColumn.transform);
 
-                newTile.GetComponent<GridElement>().SetPosition(row, col);
-                newTile.GetComponent<GridElement>().GenerateTileNumber(_columns);
-                newTile.GetComponent<GridElement>().GenerateTileColor();
-                newTile.GetComponent<GridElement>().OpenTile();
+                newGridElement.GetComponent<GridElement>().SetPosition(row, col);
+                newGridElement.GetComponent<GridElement>().GenerateTileNumber(_columns);
+                newGridElement.GetComponent<GridElement>().GenerateTileColor();
+                newGridElement.GetComponent<GridElement>().OpenTile();
 
-                Grid[row, col] = newTile.GetComponent<GridElement>();
+                Grid[row, col] = newGridElement.GetComponent<GridElement>();
             }
         }
     }
