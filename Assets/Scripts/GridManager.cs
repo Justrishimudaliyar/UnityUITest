@@ -15,6 +15,11 @@ public class GridManager : MonoBehaviour
         GenerateGrid();
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void GenerateGrid()
     {
         for (int row = 0; row < _rows; row++)

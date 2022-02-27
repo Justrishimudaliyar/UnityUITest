@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class GridElement : MonoBehaviour
+public class GridElement : MonoBehaviour, IPointerClickHandler
 {
+
     public int rowNumber;
     public int columnNumber;
     public int gridElementNumber = 1;
     public Color gridElementColor;
     public TextMeshProUGUI gridElementText;
 
- 
     public void SetPosition(int row, int col)
     {
         rowNumber = row;
@@ -34,6 +35,17 @@ public class GridElement : MonoBehaviour
     {
         gridElementText.text = gridElementNumber.ToString();
         gameObject.GetComponent<Image>().color = gridElementColor;
+    }
+
+    private void OnMouseEnter()
+    {
+        gridElementText.enabled = true;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        print("I was clicked");
+        Debug.Log(this.gameObject.name);
     }
 
 }
