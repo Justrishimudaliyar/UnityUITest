@@ -7,17 +7,12 @@ public class GridManager : MonoBehaviour
     [SerializeField] private int _rows, _columns;
     [SerializeField] private GameObject Column;
     [SerializeField] private GameObject GridElement;
-    [HideInInspector] public GridElement[,] Grid;
+    [HideInInspector] public GridElement[ , ] Grid;
 
     private void Start()
     {
         Grid = new GridElement[_rows, _columns];
         GenerateGrid();
-    }
-
-    private void Update()
-    {
-        
     }
 
     public void GenerateGrid()
@@ -35,12 +30,13 @@ public class GridManager : MonoBehaviour
                 newGridElement.GetComponent<GridElement>().SetPosition(row, col);
                 newGridElement.GetComponent<GridElement>().GenerateGridElementNumber(_columns);
                 newGridElement.GetComponent<GridElement>().GenerateGridElementColor();
-                newGridElement.GetComponent<GridElement>().OpenGridElement();
+                //newGridElement.GetComponent<GridElement>().OpenGridElement();
 
                 Grid[row, col] = newGridElement.GetComponent<GridElement>();
             }
         }
     }
+
 }
       
 
