@@ -8,9 +8,9 @@ public class GridElement : MonoBehaviour
 {
     public int rowNumber;
     public int columnNumber;
-    public int tileNumber = 1;
-    public Color tileColor;
-    public TextMeshProUGUI tileText;
+    public int gridElementNumber = 1;
+    public Color gridElementColor;
+    public TextMeshProUGUI gridElementText;
 
  
     public void SetPosition(int row, int col)
@@ -19,21 +19,21 @@ public class GridElement : MonoBehaviour
         columnNumber = col;
     }
 
-    public void GenerateTileNumber(int columns)
+    public void GenerateGridElementNumber(int columns)
     {
-        tileNumber = rowNumber * columns + columnNumber + 1;
-        tileNumber = Random.Range(0, tileNumber);
+        gridElementNumber = rowNumber * columns + columnNumber + 1;
+        gridElementNumber = Random.Range(0, gridElementNumber);
     }
 
-    public void GenerateTileColor()
+    public void GenerateGridElementColor()
     {
-        tileColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+        gridElementColor = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
     }
 
-    public void OpenTile()
+    public void OpenGridElement()
     {
-        tileText.text = tileNumber.ToString();
-        gameObject.GetComponent<Image>().color = tileColor;
+        gridElementText.text = gridElementNumber.ToString();
+        gameObject.GetComponent<Image>().color = gridElementColor;
     }
 
 }
