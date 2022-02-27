@@ -28,6 +28,10 @@ public class GridManager : MonoBehaviour
                 newTile.transform.SetParent(newRow.transform);
 
                 newTile.GetComponent<GridElement>().SetPosition(row, col);
+                newTile.GetComponent<GridElement>().GenerateTileNumber(_columns);
+                newTile.GetComponent<GridElement>().GenerateTileColor();
+                newTile.GetComponent<GridElement>().OpenTile();
+
                 Grid[row, col] = newTile.GetComponent<GridElement>();
             }
         }
