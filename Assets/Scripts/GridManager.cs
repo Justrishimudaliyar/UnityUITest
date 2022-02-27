@@ -4,38 +4,33 @@ using UnityEngine.UI;
 
 public class GridManager : MonoBehaviour
 {
-    [SerializeField] private int _width, _height;
-    [SerializeField] private Tile _tilePrefab;
-    [SerializeField] private Transform _cam;
-    private Dictionary<Vector2, Tile> _tiles;
+    [SerializeField] private int _rows, _columns;
+    [SerializeField] private GameObject Column;
+    [SerializeField] private GameObject GridElement;
+    [HideInInspector] public GridElement[,] Grid;
 
-    void Start()
+    private void Start()
     {
+        Grid = new GridElement[_rows, _columns];
         GenerateGrid();
     }
 
-    void GenerateGrid()
+    public void GenerateGrid()
     {
-        _tiles = new Dictionary<Vector2, Tile>();
-        for (int x = 0; x < _width; x++)
+        for (int row = 0; row < _rows; row++)
         {
-            for (int y = 0; y < _height; y++)
+            var newRow = Instantiate(Column, transform.position, Quaternion.identity);
+            newRow.transform.SetParent(gameObject.transform);
+
+            for (int col = 0; col < _columns; col++)
             {
-                var spawnedTile = Instantiate(_tilePrefab, new Vector3(x, y), Quaternion.identity);
-                spawnedTile.name = $"Tile {x} {y}";
-                var isOffset = (x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0);
-                spawnedTile.Init(isOffset);
-                _tiles[new Vector2(x, y)] = spawnedTile;
+                var newTile = Instantiate(GridElement, transform.position, Quaternion.identity);
+                newTile.transform.SetParent(newRow.transform);
+
+                newTile.GetComponent<GridElement>().SetPosition(row, col);
+                Grid[row, col] = newTile.GetComponent<GridElement>();
             }
         }
-
-        _cam.transform.position = new Vector3((float)_width / 2 - 0.5f, (float)_height / 2 - 0.5f, -10);
-    }
-
-    public Tile GetTileAtPosition(Vector2 pos)  
-    {
-        if (_tiles.TryGetValue(pos, out var tile)) return tile;
-        return null;
     }
 }
       
