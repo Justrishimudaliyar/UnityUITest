@@ -230,6 +230,7 @@ MonoBehaviour:
   gridElementColor: {r: 0, g: 0, b: 0, a: 0}
   gridElementText: {fileID: 2671669624033138883}
   gridElementButton: {fileID: 3735958505254132481}
+  isActive: 0
 --- !u!114 &3735958505254132481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -276,7 +277,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 999048526492879785}
         m_TargetAssemblyTypeName: GridElement, Assembly-CSharp
-        m_MethodName: OpenGridElement
+        m_MethodName: OnGridElementClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
