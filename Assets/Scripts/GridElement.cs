@@ -8,10 +8,10 @@ using System;
 
 public class GridElement : MonoBehaviour
 {
-    public int rowNumber;
-    public int columnNumber;
-    public int gridElementNumber = 1;
-    public Color gridElementColor;
+    private int rowNumber;
+    private int columnNumber;
+    private int gridElementNumber = 1;
+    private Color gridElementColor;
     public TextMeshProUGUI gridElementText;
     [SerializeField]
     private Button gridElementButton;
